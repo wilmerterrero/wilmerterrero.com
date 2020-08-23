@@ -35,10 +35,10 @@ const Bio = () => {
           overflow: "hidden",
         }}
       >
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="阿江" />
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="wilmer" />
       </div>
       <p style={{ maxWidth: 180 }}>
-        Blog by <a href="https://twitter.com/anikijiang">anikijiang</a>
+        Blog by <a href="https://twitter.com/wilterrero">wilmerterrero</a>
         <br />
         I make my point
       </p>
