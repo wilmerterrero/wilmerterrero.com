@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 import { TimelineMax, Back, Power1 } from "gsap"
 import TransitionLink, { TransitionPortal } from "gatsby-plugin-transition-link"
 
-import Bio from "../components/bio"
+import Greetings from "../components/greetings"
+import Icons from "../components/icons"
+import Tittles from "../components/tittles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -80,8 +82,16 @@ class Index extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="Home" />
-        <Bio />
+        <SEO title="Lo aprendo, lo enseño 👨‍💻" />
+        <Greetings />
+        <Icons />
+        <Tittles
+          emoji="📌" 
+          title="Artículos"
+          id="articulos"
+          // link="Ver todos los artículos"
+          // href="#!"
+        />
         <div className="blog-list" ref={n => (this.mod = n)}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug

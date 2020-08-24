@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `gatsby-starter-point`,
-    author: `George Brown`,
-    description: `A gatsby starter for personal blog.`,
+    title: `wilmerterrero`,
+    author: `Wilmer Terrero`,
+    description: `Lo aprendo, lo enseño. Blog dedicado a la enseñanza, autoaprendizaje, superación personal y emprendimiento. Tocamos temas sobre desarrollo web y web technologies.`,
     siteUrl: `https://gatsby-starter-point.netlify.app/`,
     social: {
-      twitter: `anikijiang`,
+      twitter: `wilterrero`,
     },
   },
   plugins: [

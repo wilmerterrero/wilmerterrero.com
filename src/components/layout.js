@@ -4,51 +4,7 @@ import Header from "./header"
 class Layout extends React.Component {
   render() {
     const { title, children } = this.props
-    // const rootPath = `${__PATH_PREFIX__}/`
-    // let header
 
-    // if (location.pathname === rootPath) {
-    //   header = (
-    //     <h1
-    //       style={{
-    //         ...scale(1.5),
-    //         marginBottom: rhythm(1.5),
-    //         marginTop: 0,
-    //       }}
-    //     >
-    //       <Link
-    //         style={{
-    //           boxShadow: `none`,
-    //           textDecoration: `none`,
-    //           color: `inherit`,
-    //         }}
-    //         to={`/`}
-    //       >
-    //         {title}
-    //       </Link>
-    //     </h1>
-    //   )
-    // } else {
-    //   header = (
-    //     <h3
-    //       style={{
-    //         fontFamily: `Montserrat, sans-serif`,
-    //         marginTop: 0,
-    //       }}
-    //     >
-    //       <Link
-    //         style={{
-    //           boxShadow: `none`,
-    //           textDecoration: `none`,
-    //           color: `inherit`,
-    //         }}
-    //         to={`/`}
-    //       >
-    //         {title}
-    //       </Link>
-    //     </h3>
-    //   )
-    // }
     return (
       <div className="container">
         <div className="content">
@@ -57,15 +13,15 @@ class Layout extends React.Component {
         </div>
         <footer>
           © {new Date().getFullYear()} <a
-              href="https://veryben.com"
+              href="https://wilmerterrero.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              阿江
+              wilmerterrero
             </a>
           <div className="social-links">
             <a
-              href="https://twitter.com/anikijiang"
+              href="https://twitter.com/wilterrero"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -73,27 +29,11 @@ class Layout extends React.Component {
             </a>{" "}
             &bull;{" "}
             <a
-              href="https://instagram.com/veryben"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              instagram
-            </a>{" "}
-            &bull;{" "}
-            <a
-              href="https://github.com/teaware"
+              href="https://github.com/wilmerterrero"
               target="_blank"
               rel="noopener noreferrer"
             >
               github
-            </a>{" "}
-            &bull;{" "}
-            <a
-              href="https://codepen.io/farm-boy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              codepen
             </a>
           </div>
         </footer>

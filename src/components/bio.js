@@ -7,7 +7,7 @@ import { rhythm } from "../utils/typography"
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "profile-pic.jpg" }) {
+      placeholderImage: file(relativePath: { eq: "me.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 100) {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -40,7 +40,7 @@ const Bio = () => {
       <p style={{ maxWidth: 180 }}>
         Blog by <a href="https://twitter.com/wilterrero">wilmerterrero</a>
         <br />
-        I make my point
+        ¡Happy Hacking!
       </p>
     </div>
   )
