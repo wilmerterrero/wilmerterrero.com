@@ -34,6 +34,7 @@
     "react-dom": "^16.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.1.0",
+    "react-router-dom": "^5.2.0",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
