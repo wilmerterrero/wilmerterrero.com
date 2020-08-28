@@ -2,9 +2,11 @@ import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
 
-import Links from '../components/links'
+import Links from "../components/links"
 import Headroom from "react-headroom"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
+
+import Logo from "../components/img/logo"
 
 class Header extends React.Component {
   render() {
@@ -14,11 +16,17 @@ class Header extends React.Component {
         <header>
           <Headroom>
             <div className="navbar">
-              <h1>
-                <AniLink cover direction="down" bg="#8c61ff" to="/">
-                  {siteTitle}
-                </AniLink>
-              </h1>
+
+              <div className="logo">
+                <div className="logo-img">
+                  <Logo />
+                </div>
+                  <h1>
+                    <AniLink cover direction="down" bg="#8c61ff" to="/">
+                      {siteTitle}
+                    </AniLink>
+                  </h1>
+              </div>
 
               <ThemeToggler>
                 {({ theme, toggleTheme }) => (

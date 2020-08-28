@@ -69,6 +69,7 @@ main {
   z-index: 2;
   h1 {
     margin: 0;
+    margin-bottom: 5px;
     font-size: 1.25rem;
     line-height: 1.1;
     background: linear-gradient(to right, var(--hover) 50%, transparent 50%);
@@ -103,6 +104,16 @@ main {
       background-color: #fff;
       fill: #282c35;
     }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  .logo-img{
+    width: 45px;
+    margin-right: 10px;
   }
 }
 
@@ -164,8 +175,8 @@ main {
   font-size: 3rem;
 }
 
-//Tittles
-.tittles {
+//Titles
+.titles {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #2d3748;

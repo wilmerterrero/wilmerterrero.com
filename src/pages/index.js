@@ -5,7 +5,7 @@ import TransitionLink, { TransitionPortal } from "gatsby-plugin-transition-link"
 
 import Greetings from "../components/greetings"
 import Icons from "../components/icons"
-import Tittles from "../components/tittles"
+import Titles from "../components/titles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -85,7 +85,7 @@ class Index extends React.Component {
         <SEO title="Lo aprendo, lo enseño 👨‍💻" />
         <Greetings />
         <Icons />
-        <Tittles
+        <Titles
           emoji="📌" 
           title="Artículos"
           id="articulos"
@@ -156,7 +156,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+        sort: { order: DESC, fields: [frontmatter___date] },
+        filter: {frontmatter: {posttype: {eq: "blog"}}}
+      ) {
       edges {
         node {
           excerpt

@@ -1,5 +1,3 @@
-// https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
-
 import React from "react"
 import { graphql } from "gatsby"
 import { kebabCase } from "lodash"
@@ -38,7 +36,7 @@ const Tags = ({ data }) => {
 export default Tags
 
 export const pageQuery = graphql`
-  query {
+  query allTags {
     site {
       siteMetadata {
         title

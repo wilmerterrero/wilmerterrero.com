@@ -1,51 +1,22 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-
-import Titles from "../components/titles"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Titles from "../components/titles"
 import SEO from "../components/seo"
 
-const Blog = () => {
+const Courses = ({ data }) => {
 
-  const data = useStaticQuery(graphql`
-    query allPosts {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-      allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] },
-          filter: {frontmatter: {posttype: {eq: "blog"}}}
-        ) {
-        edges {
-          node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              spoiler
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  const { site, allMarkdownRemark } = data;
-  const siteTitle = site.siteMetadata.title
-  const posts = allMarkdownRemark.edges
+    const { site, allMarkdownRemark } = data;
+    const siteTitle = site.siteMetadata.title
+    const posts = allMarkdownRemark.edges
 
   return (
     <Layout title={siteTitle}>
-        <SEO title="Artículos 📝" />
+        <SEO title="Cursos 📝" />
         <Titles
           emoji="📌" 
-          title="Artículos"
-          id="blog"
+          title="Cursos"
+          id="courses"
           // link="Ver todos los artículos"
           // href="#!"
         />
@@ -79,4 +50,34 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default Courses
+
+export const allCourses = graphql`
+  query allCoursePost {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { posttype: { eq: "curso" } } }
+    ) {
+      edges {
+        node {
+            fields {
+                slug
+            }
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            title
+            date
+            tags
+          }
+        }
+      }
+    }
+  }
+`

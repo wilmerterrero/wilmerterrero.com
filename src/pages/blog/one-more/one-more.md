@@ -3,6 +3,7 @@ title: "One More"
 tags: ["Gatsby"]
 date: "2019-10-23"
 spoiler: "Just a humble blog post"
+posttype: blog
 ---
 
 This is the first line.

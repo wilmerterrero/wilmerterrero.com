@@ -18,11 +18,12 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const postTemplate = path.resolve("./src/templates/post.js")
+  const postTemplate = path.resolve("./src/templates/blog-post.js")
   const tagTemplate = path.resolve("./src/templates/tag.js")
+  const courseTemplate = path.resolve("./src/templates/course-post.js")
 
   return graphql(`
-    {
+  {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
@@ -45,14 +46,21 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges
-    // Creates blog posts
     posts.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: postTemplate,
-        context: { slug: node.fields.slug }, // additional data can be passed via context
-      })
-    })
+      if (node.frontmatter.posttype === "curso") {
+        createPage({
+          path: `/curso/${_.kebabCase(node.frontmatter.path)}`,
+          component: courseTemplate,
+          context: { slug: node.fields.slug }
+        });
+      } else {
+        createPage({
+          path: `/blog/${_.kebabCase(node.frontmatter.path)}`,
+          component: postTemplate,
+          context: { slug: node.fields.slug }
+        });
+      }
+    });
 
     // create Tags pages
     // pulled directly from https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
@@ -75,5 +83,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
         },
       })
     })
+
   })
 }
