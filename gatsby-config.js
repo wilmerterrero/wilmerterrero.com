@@ -3,7 +3,7 @@ module.exports = {
     title: `wilmerterrero`,
     author: `Wilmer Terrero`,
     description: `Lo aprendo, lo enseño. Blog dedicado a la enseñanza, autoaprendizaje, superación personal y emprendimiento. Tocamos temas sobre desarrollo web y web technologies.`,
-    siteUrl: `https://gatsby-starter-point.netlify.app/`,
+    siteUrl: `https://wilmerterrero.com/`,
     social: {
       twitter: `wilterrero`,
     },
@@ -135,8 +135,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-point`,
-        short_name: `point`,
+        name: `wilmerterrero`,
+        short_name: `wt`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#8c61ff`,
