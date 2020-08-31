@@ -1,21 +1,8 @@
-# gatsby-starter-point
+# wilmerterrero.com
 
-A humble [Gatsby Starter](https://www.gatsbyjs.com/starters/teaware/gatsby-starter-point/) for personal blog. :shipit:
+Lo aprendo, lo enseño. Blog dedicado a la enseñanza, autoaprendizaje, superación personal y emprendimiento.
 
-With fancy page transitions ✨💫
-
-## Basic Guide
-
-Install dependencies
-
-```
-npm install
-```
-
-when it's done
-
-```
-gatsby develop
-```
-
-Happy coding 💅🏻
+## TO DO
+- [ ] Translations to other languages
+- [ ] Lazy load for all the images
+- [ ] Adding contribution links
