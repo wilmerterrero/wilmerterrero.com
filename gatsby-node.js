@@ -1,16 +1,33 @@
 const _ = require("lodash")
 const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-module.exports.onCreateNode = ({ node, actions }) => {
+const pathMap = {
+  blog: "blog",
+  curso: "cursos"
+}
+
+module.exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
+    const fileNode = getNode(node.parent)
+    const source = fileNode.sourceInstanceName
 
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: pathMap[source]
+    })
     createNodeField({
       node,
       name: "slug",
-      value: slug,
+      value: `/${source}${slug}`
+    })
+    createNodeField({
+      node,
+      name: "template",
+      value: source
     })
   }
 }
@@ -18,9 +35,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const postTemplate = path.resolve("./src/templates/blog-post.js")
   const tagTemplate = path.resolve("./src/templates/tag.js")
-  const courseTemplate = path.resolve("./src/templates/course-post.js")
 
   return graphql(`
   {
@@ -32,9 +47,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              template
             }
             frontmatter {
               tags
+              title
+              posttype
             }
           }
         }
@@ -46,24 +64,28 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
 
     const posts = result.data.allMarkdownRemark.edges
-    posts.forEach(({ node }) => {
-      if (node.frontmatter.posttype === "curso") {
-        createPage({
-          path: `/curso/${_.kebabCase(node.frontmatter.path)}`,
-          component: courseTemplate,
-          context: { slug: node.fields.slug }
-        });
-      } else {
-        createPage({
-          path: `/blog/${_.kebabCase(node.frontmatter.path)}`,
-          component: postTemplate,
-          context: { slug: node.fields.slug }
-        });
-      }
-    });
+
+    posts.forEach(({ node }, index) => {
+
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+      const next = index === 0 ? null : posts[index - 1].node
+
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`./src/templates/${node.fields.template}.js`),
+        context: {
+          // Data passed to context is available in page queries as GraphQL variables.
+          slug: node.fields.slug,
+          template: node.fields.template,
+          tittle: node.frontmatter.tittle,
+          posttype: node.frontmatter.posttype,
+          previous,
+          next,
+        }
+      })
+    })
 
     // create Tags pages
-    // pulled directly from https://www.gatsbyjs.org/docs/adding-tags-and-categories-to-blog-posts/#add-tags-to-your-markdown-files
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
     _.each(posts, edge => {

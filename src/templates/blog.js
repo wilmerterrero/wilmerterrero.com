@@ -9,13 +9,13 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-class Post extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+const BlogPostTemplate = ({ data, pageContext, location }) => {
+    const post = data.markdownRemark
+    const siteTitle = data.site.siteMetadata.title
+    const { previous, next } = pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={location} title={siteTitle}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -49,14 +49,52 @@ class Post extends React.Component {
               marginBottom: rhythm(1),
             }}
           />
+          <nav>
+            <ul className="links">
+              <li>
+                {previous && (
+                  <AniLink
+                    cover
+                    direction="right"
+                    bg="#8c61ff"
+                    to={previous.fields.slug}
+                    rel="prev"
+                  >
+                    ← {previous.frontmatter.title}
+                  </AniLink>
+                )}
+              </li>
+              {
+                next.frontmatter.posttype !== "curso" ?
+                  <li>
+                    {next && (
+                      <AniLink
+                        cover
+                        direction="right"
+                        bg="#8c61ff"
+                        to={next.fields.slug}
+                        rel="next"
+                      >
+                        {next.frontmatter.title} →
+                      </AniLink>
+                    )}
+                  </li>
+                 : null
+              }
+            </ul>
+          </nav>
+          <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
           <Bio />
         </article>
       </Layout>
     )
-  }
 }
 
-export default Post
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -66,7 +104,7 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    markdownRemark(fields: {slug: {eq: $slug}}, frontmatter: {posttype: {eq: "blog"}}) {
       id
       excerpt(pruneLength: 160)
       html

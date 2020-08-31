@@ -8,6 +8,8 @@ import Icons from "../components/icons"
 import Titles from "../components/titles"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Bio from "../components/bio"
+import { rhythm } from "../utils/typography"
 
 class Index extends React.Component {
   constructor(props) {
@@ -86,26 +88,22 @@ class Index extends React.Component {
         <Greetings />
         <Icons />
         <Titles
-          emoji="📌" 
           title="Artículos"
           id="articulos"
-          // link="Ver todos los artículos"
-          // href="#!"
         />
-        <div className="blog-list" ref={n => (this.mod = n)}>
+        <div className="blog" ref={n => (this.mod = n)}>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <article key={node.fields.slug}>
+              <article className="blog-list" key={node.fields.slug}>
                 <header>
                   <h2>
                     <TransitionLink
-                      to={`/${node.fields.slug}`}
+                      to={`${node.fields.slug}`}
                       exit={{
                         length: 1,
                         trigger: ({ exit }) =>
                           this.moveInDirection(exit, "left"),
-                        // state: { char: "exit state" },
                       }}
                       entry={{
                         delay: 0.5,
@@ -115,7 +113,6 @@ class Index extends React.Component {
                       {title}
                     </TransitionLink>
                   </h2>
-                  <small>{node.frontmatter.date}</small>
                 </header>
                 <section>
                   <p
@@ -124,9 +121,34 @@ class Index extends React.Component {
                     }}
                   />
                 </section>
+                <div className="items">
+                    <small className="items-inline">{node.frontmatter.date} <span role="img" aria-label="heart">📆</span></small>
+                    <small className="items-inline">Tiempo de lectura: {node.timeToRead} minutos <span role="img" aria-label="heart">⌛</span></small>
+                </div>
               </article>
             )
           })}
+            <TransitionLink
+              to='/blog'
+              className="more-articles"
+              exit={{
+                length: 1,
+                trigger: ({ exit }) =>
+                  this.moveInDirection(exit, "left"),
+              }}
+              entry={{
+                delay: 0.5,
+                trigger: ({ node }) => this.char(node),
+              }}
+            >
+              Ver más artículos
+            </TransitionLink>
+            <hr
+              style={{
+                marginBottom: rhythm(1),
+              }}
+            />
+            <Bio />
         </div>
         <TransitionPortal>
           <div
@@ -158,7 +180,8 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] },
-        filter: {frontmatter: {posttype: {eq: "blog"}}}
+        filter: {frontmatter: {posttype: {eq: "blog"}}},
+        limit: 3
       ) {
       edges {
         node {
@@ -171,6 +194,7 @@ export const pageQuery = graphql`
             title
             spoiler
           }
+          timeToRead
         }
       }
     }

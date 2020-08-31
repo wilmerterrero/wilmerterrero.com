@@ -18,7 +18,7 @@ const Greetings = () => {
   return (
     <>
       <div className="wrapper">
-        <div className="profile-card js-profile-card">
+        <div className="profile-card">
           <div className="profile-card__img">
             <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="wilmer" />
           </div>
@@ -28,7 +28,7 @@ const Greetings = () => {
             <div className="profile-card__txt bio">
             <p>
                 ¡Hey pequeños bytes! Soy un entusiasta de la tecnología, especialmente las tecnologías webs.
-                Aprendo, enseñando. Por eso cree este blog. En este blog tratamos temas sobre <a href="#!">#webtechnologies</a> <a href="#!">#emprendimiento</a> <a href="#!">#desarrolloweb</a>
+                Aprendo, enseñando. Por eso cree este blog. En este blog tratamos temas sobre <a href="/tags/desarrolloweb">#desarrolloweb</a> <a href="/tags/emprendimiento">#emprendimiento</a> <a href="#!">#mitosinformaticos</a>
             </p>
             <p>
                 Te invito a leer a los articulos publicados en este blog, te ayudarán a crear la web por ti mismo.
@@ -44,6 +44,8 @@ const Greetings = () => {
               <a
                 href="https://twitter.com/wilterrero"
                 className="profile-card-social__item twitter"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <span className="icon-font">
                   <svg className="icon">
@@ -56,6 +58,8 @@ const Greetings = () => {
               <a
                 href="https://github.com/wilmerterrero"
                 className="profile-card-social__item github"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <span className="icon-font">
                   <svg className="icon">
@@ -67,6 +71,8 @@ const Greetings = () => {
               <a
                 href="https://www.youtube.com/channel/UCxyWgbeavnudPkYbi4YqmmQ"
                 className="profile-card-social__item youtube"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <span className="icon-font">
                   <svg className="icon">

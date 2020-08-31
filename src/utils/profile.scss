@@ -16,11 +16,11 @@ a, a:hover {
   width: 100%;
   height: auto;
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 70px;
 
   @media screen and (max-width: 768px) {
     height: auto;
-    padding-top: 100px;
+    padding-top: 70px;
   }
 
 }
@@ -48,7 +48,6 @@ a, a:hover {
     }
 
     .profile-card-form {
-      transform: none;
       transition-delay: .1s;
     }
   }
@@ -344,6 +343,16 @@ a, a:hover {
 
     }
 
+    &.button--gray {
+      box-shadow: none;
+      background: #a19f9f;
+      color: #142029;
+    }
+
+    &.button--subs {
+      font-size: 15px;
+    }
+
   }
 
   &-message {
@@ -352,19 +361,19 @@ a, a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    padding-top: 130px;
     padding-bottom: 100px;
-    opacity: 0;
-    pointer-events: none;
     transition: all .3s;
+
+    @media screen and (max-width: 576px) {
+      padding-top: 130px;
+    }
   }
 
   &-form {
     box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
-    max-width: 80%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
     background: #fff;
     border-radius: 10px;
     padding: 35px;
@@ -374,12 +383,12 @@ a, a:hover {
     transition: all .3s;
 
     @media screen and (max-width: 768px) {
-      max-width: 90%;
+      max-width: 100%;
       height: auto;
     }
 
     @media screen and (max-width: 576px) {
-      padding: 20px;
+      padding: 40px;
     }
 
     &__bottom {
@@ -392,29 +401,28 @@ a, a:hover {
 
     }
 
-  }
-
-  textarea {
-    width: 100%;
-    resize: none;
-    height: 210px;
-    margin-bottom: 20px;
-    border: 2px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 15px 20px;
-    color: #324e63;
-    font-weight: 500;
-    font-family: 'Quicksand', sans-serif;
-    outline: none;
-    transition: all .3s;
-
-    &:focus {
+    input {
+      width: 100%;
+      resize: none;
+      margin-bottom: 20px;
+      border: 2px solid #dcdcdc;
+      border-radius: 10px;
+      padding: 15px 20px;
+      color: #324e63;
+      font-weight: 500;
+      font-family: 'Quicksand', sans-serif;
       outline: none;
-      border-color: #8a979e;
+      transition: all .3s;
+  
+      &:focus {
+        outline: none;
+        border-color: #8a979e;
+      }
+  
     }
 
   }
-
+  
   &__overlay {
     width: 100%;
     height: 100%;
@@ -422,7 +430,6 @@ a, a:hover {
     top: 0;
     left: 0;
     pointer-events: none;
-    opacity: 0;
     background: rgba(22, 33, 72, 0.35);
     border-radius: 12px;
     transition: all .3s;

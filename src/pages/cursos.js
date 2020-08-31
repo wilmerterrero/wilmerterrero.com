@@ -4,7 +4,9 @@ import "../utils/profile.scss"
 
 import Titles from "../components/titles"
 import Layout from "../components/layout"
+import Bio from "../components/bio"
 import SEO from "../components/seo"
+import { rhythm } from "../utils/typography"
 
 import CursoHTMLCSSJS from "../components/img/cursos/html-css-js"
 
@@ -28,11 +30,8 @@ const Cursos = () => {
     <Layout title={siteTitle}>
         <SEO title="Cursos 📙" />
         <Titles
-          emoji="📌" 
           title="Cursos"
-          id="proyectos"
-          // link="Ver todos los artículos"
-          // href="#!"
+          id="cursos"
         />
       <div className="wrapper">
         <div className="profile-card js-profile-card">
@@ -50,12 +49,18 @@ const Cursos = () => {
             </div>
 
             <div className="profile-card-ctr">
-                <a className="profile-card__button button--blue" href="#articulos">Ver contenido</a>
+                <a className="profile-card__button button--blue" href="curso/curso-html-css-js">Ver contenido</a>
             </div>
 
           </div>
         </div>
       </div>
+        <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+        <Bio />
       </Layout>
     </>
   )

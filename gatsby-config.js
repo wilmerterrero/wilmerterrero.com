@@ -27,18 +27,18 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/blog`,
-        name: `blog`,
-      },
+        path: `${__dirname}/src/content/blog`,
+        name: "blog"
+      }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/pages/curso`,
-        name: `curso`,
-      },
+        path: `${__dirname}/src/content/cursos`,
+        name: "curso"
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,

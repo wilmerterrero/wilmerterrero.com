@@ -4,7 +4,9 @@ import "../utils/profile.scss"
 
 import Titles from "../components/titles"
 import Layout from "../components/layout"
+import Bio from "../components/bio"
 import SEO from "../components/seo"
+import { rhythm } from "../utils/typography"
 
 import DevtafolioImg from "../components/img/projects/project-devtafolio"
 
@@ -28,11 +30,8 @@ const Blog = () => {
     <Layout title={siteTitle}>
         <SEO title="Proyectos 💡" />
         <Titles
-          emoji="📌" 
           title="Proyectos"
           id="proyectos"
-          // link="Ver todos los artículos"
-          // href="#!"
         />
       <div className="wrapper">
         <div className="profile-card js-profile-card">
@@ -53,8 +52,10 @@ const Blog = () => {
             <div className="profile-card-social">
 
               <a
-                href="https://twitter.com/wilterrero"
+                href="https://github.com/wilmerterrero/devtafolio"
                 className="profile-card-social__item link"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <span className="icon-font">
                   <svg className="icon">
@@ -65,8 +66,10 @@ const Blog = () => {
 
 
               <a
-                href="https://github.com/wilmerterrero"
+                href="https://github.com/wilmerterrero/devtafolio"
                 className="profile-card-social__item github"
+                target="_blank" 
+                rel="noopener noreferrer"
               >
                 <span className="icon-font">
                   <svg className="icon">
@@ -79,6 +82,12 @@ const Blog = () => {
           </div>
         </div>
       </div>
+         <hr
+            style={{
+              marginBottom: rhythm(1),
+            }}
+          />
+        <Bio />
       </Layout>
       <svg hidden="hidden">
         <defs>

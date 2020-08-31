@@ -83,15 +83,15 @@ class Tag extends React.Component {
         <SEO title={tag} />
         <div ref={n => (this.mod = n)}>
           <h2>#{tag}</h2>
-          <ul className="blog-list">
+          <ul>
             {edges.map(({ node }) => {
-              const { title, date } = node.frontmatter
+              const { title, spoiler, date } = node.frontmatter
               const { slug } = node.fields
               return (
-                <li key={slug}>
+                <li key={slug} className="blog-list">
                   <h3>
                     <TransitionLink
-                      to={`/${slug}`}
+                      to={`${slug}`}
                       exit={{
                         length: 1,
                         trigger: ({ exit }) =>
@@ -106,13 +106,23 @@ class Tag extends React.Component {
                       {title}
                     </TransitionLink>
                   </h3>
-                  <small>{date}</small>
+                  <section>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: spoiler || node.excerpt,
+                    }}
+                  />
+                </section>
+                <div className="items">
+                    <small className="items-inline">{date} <span role="img" aria-label="heart">📆</span></small>
+                    <small className="items-inline">Tiempo de lectura: {node.timeToRead} minutos <span role="img" aria-label="heart">⌛</span></small>
+                </div>
                 </li>
               )
             })}
           </ul>
           <AniLink cover direction="down" bg="#8c61ff" to="/tags">
-            All tags
+            Todas las tags
           </AniLink>
         </div>
         <TransitionPortal>
@@ -158,7 +168,9 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMMM DD, YYYY")
+            spoiler
           }
+          timeToRead
         }
       }
     }

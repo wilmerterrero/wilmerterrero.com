@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 
 import { rhythm } from "../utils/typography"
 
+import SubscriptionForm from "./subscription"
+
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -18,31 +20,34 @@ const Bio = () => {
   `)
 
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(1),
-      }}
-      className="bio"
-    >
+    <>
+      <SubscriptionForm />
       <div
         style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          width: rhythm(2),
-          height: rhythm(2),
-          borderRadius: "50%",
-          overflow: "hidden",
+          display: `flex`,
+          marginBottom: rhythm(1),
         }}
+        className="bio"
       >
-        <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="wilmer" />
+        <div
+          style={{
+            marginRight: rhythm(1 / 2),
+            marginBottom: 0,
+            width: rhythm(2),
+            height: rhythm(2),
+            borderRadius: "50%",
+            overflow: "hidden",
+          }}
+        >
+          <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="wilmer" />
+        </div>
+        <p style={{ maxWidth: 180 }}>
+          Blog by <a href="https://twitter.com/wilterrero">wilmerterrero</a>
+          <br />
+          ¡Happy Coding!
+        </p>
       </div>
-      <p style={{ maxWidth: 180 }}>
-        Blog by <a href="https://twitter.com/wilterrero">wilmerterrero</a>
-        <br />
-        ¡Happy Hacking!
-      </p>
-    </div>
+    </>
   )
 }
 
