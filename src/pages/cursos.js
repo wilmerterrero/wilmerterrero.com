@@ -40,7 +40,7 @@ const Cursos = () => {
           </div>
 
           <div className="profile-card__cnt js-profile-cnt">
-            <div className="profile-card__name">HTML-CSS-JS <span role="img" aria-label="emojis">🟠🟡🔵</span></div>
+            <div className="profile-card__name">HTML-CSS-JS <span role="img" aria-label="emojis">🎉</span></div>
             <div className="profile-card__txt">
             <p>
                 Curso de iniciación al desarrollo web en donde tratamos temas desde el inicio de la web, hasta las bases del lenguaje de marcado

@@ -1,3 +1,7 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--bg);
   -webkit-tap-highlight-color: transparent;
