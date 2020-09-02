@@ -43,9 +43,11 @@ const SubscriptionForm = () => {
         const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
         if(emailRegex.test(email)){
+            setMail( { email: '' } );
             setFormState(false);
             window.location = "https://tinyletter.com/wilmerterrero"
         } else {
+            setMail( { email: '' } );
             setFormState(false);
             setError(true);
         }
