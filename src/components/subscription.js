@@ -1,10 +1,12 @@
 import React, { useState } from "react"
+import Error from "./error"
 import "../utils/profile.scss"
-import MailchimpSubscribe from "react-mailchimp-subscribe"
 
-const Form = () => {
+
+const SubscriptionForm = () => {
 
   const [formstate, setFormState] = useState(false);
+  const [error, setError] = useState(false);
   const [mail, setMail] = useState({
       email: ''
   })
@@ -38,25 +40,15 @@ const Form = () => {
             [e.target.name] : e.target.value
         })
 
-        validateMail(email);
+        const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
-        if(validateMail){
-            console.log('exito');
+        if(emailRegex.test(email)){
             setFormState(false);
-            return (
-                <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL}/>
-            )
-        }else{
-            console.log('no es un correo valido')
+            window.location = "https://tinyletter.com/wilmerterrero"
+        } else {
+            setFormState(false);
+            setError(true);
         }
-      }
-  }
-
-  const validateMail = email => {
-      //eslint-disable-next-line
-      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-      if(email.match(emailRegex)){
-          return true;
       }
   }
 
@@ -78,6 +70,7 @@ const Form = () => {
                             <form 
                                 className="profile-card-form"
                                 onSubmit={onSubmit}
+                                action="https://tinyletter.com/wilmerterrero"
                             >
                                 <div className="profile-card-form__container">
                                 <input
@@ -109,10 +102,13 @@ const Form = () => {
                     )
                     : null
                 }
-            </div>  
+            </div>
+            {
+                error ? <Error message = "Ha ocurrido un error" /> : null
+            }  
         </div>
     </>
   )
 }
 
-export default Form
+export default SubscriptionForm

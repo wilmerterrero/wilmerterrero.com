@@ -367,6 +367,22 @@ a, a:hover {
     @media screen and (max-width: 576px) {
       padding-top: 130px;
     }
+
+    .error {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #d5135a
+    }
+
+    .error_btn{
+      width: 35%;
+      margin: 0 auto;
+
+      @media screen and (max-width: 576px) {
+        width: 100%;
+      }
+    }
   }
 
   &-form {
