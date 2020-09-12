@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-point",
+  "name": "wilmerterrero.com",
   "private": true,
-  "description": "be water my friend",
-  "version": "0.2.0",
-  "author": "George Brown <teawares@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/teaware/gatsby-starter-point/issues"
-  },
+  "description": "Lo aprendo, lo enseño. Blog dedicado a la enseñanza, autoaprendizaje, superación personal y emprendimiento.",
+  "version": "1.1.0",
+  "author": "Wilmer Terrero",
   "dependencies": {
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.47",
@@ -36,7 +33,6 @@
     "react-dom": "^16.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.1.0",
-    "react-mailchimp-subscribe": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "react-typography": "^0.16.19",
     "typeface-merriweather": "0.0.72",
@@ -47,7 +43,7 @@
   "devDependencies": {
     "prettier": "^2.0.5"
   },
-  "homepage": "https://gatsby-starter-point.netlify.app/",
+  "homepage": "https://wilmerterrero.com/",
   "license": "MIT",
   "scripts": {
     "build": "rm -rf public && rm -rf .cache && gatsby build",
