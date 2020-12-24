@@ -13,7 +13,7 @@ import CursoHTMLCSSJS from "../components/img/cursos/html-css-js"
 const Cursos = () => {
 
   const data = useStaticQuery(graphql`
-    query site {
+    query {
       site {
         siteMetadata {
           title

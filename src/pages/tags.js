@@ -36,7 +36,7 @@ const Tags = ({ data }) => {
 export default Tags
 
 export const pageQuery = graphql`
-  query allTags {
+  query {
     site {
       siteMetadata {
         title

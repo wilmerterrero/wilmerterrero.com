@@ -10,7 +10,7 @@ import { rhythm } from "../utils/typography"
 const About = () => {
 
   const data = useStaticQuery(graphql`
-    query aboutData {
+    query {
       site {
         siteMetadata {
           title

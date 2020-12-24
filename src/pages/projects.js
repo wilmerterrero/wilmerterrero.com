@@ -13,7 +13,7 @@ import DevtafolioImg from "../components/img/projects/project-devtafolio"
 const Blog = () => {
 
   const data = useStaticQuery(graphql`
-    query siteData {
+    query {
       site {
         siteMetadata {
           title

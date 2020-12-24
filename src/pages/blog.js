@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 const Blog = () => {
 
   const data = useStaticQuery(graphql`
-    query allPosts {
+    query {
       site {
         siteMetadata {
           title

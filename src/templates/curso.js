@@ -59,7 +59,7 @@ class Course extends React.Component {
 export default Course
 
 export const pageQuery = graphql`
-  query CoursePostBySlug($slug: String!) {
+  query ($slug: String!) {
     site {
       siteMetadata {
         title
