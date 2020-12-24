@@ -33,7 +33,7 @@ const Icons = () => {
           ></path>
         </svg>
       </div>
-      {/* WEBPACK */}
+      {/* .NET */}
       <div className="column">
         <svg viewBox="0 0 128 128">
           <path
