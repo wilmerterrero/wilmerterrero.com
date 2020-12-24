@@ -79,7 +79,7 @@ En este ejemplo solo usaremos dos endpoints de nuestra API de pokemon.
     //eslint-disable-next-line
   }, []);
 ```
-Con un hook de estado definimos el estado de nuestra lista de pokemones, luego utilizamos el hook useEffect para en cada render utilice la funcion que creamos para hacer la peticion HTTP.
+Con un hook de estado definimos el estado de nuestra lista de pokemones, luego utilizamos el hook useEffect para en cada render utilice la funcion que creamos para hacer la peticion HTTP y al final guardamos el resultado en nuestro hook de estado de pokemones.
 
 ### Mostrando los datos
 Como nuestros datos vienen en un array, creamos un componente para renderizar los resultados de la peticion HTTP de nuestra API:
