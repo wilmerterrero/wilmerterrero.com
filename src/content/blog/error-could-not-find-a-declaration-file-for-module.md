@@ -6,7 +6,7 @@ spoiler: "Solucion practica a este error"
 posttype: blog
 ---
 
-> Más de una vez consturyendo apps con React y muchas dependencias me ha sucedido este error y decidí documentar la solución.
+> Más de una vez construyendo apps con React con muchas dependencias me ha sucedido este error y decidí documentar la solución.
 
 ### ¿Por qué sucede?
 Este error sucede cuando intentamos utilizar un modulo de terceros y este no llega a indexarse correctamente en nuestras dependencias.
@@ -18,4 +18,10 @@ Dentro de este archivo simplemente declarar el modulo que no se indexa:
 ```ts
 /// <reference types="react-scripts">
 declare module 'example-xyz';
+```
+
+Otra solución si nuestra app sigue corriendo pero el linter sigue mostrando ese error seria:
+```ts
+// @ts-ignore
+import xyz from 'example-xyz'
 ```
