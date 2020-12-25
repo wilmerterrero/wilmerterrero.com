@@ -263,6 +263,11 @@ a, a:hover {
         box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.6);
       }
 
+      &.link {
+        background: linear-gradient(45deg, #0A66C2,#3799ee);
+        box-shadow: 0px 4px 30px rgba(19, 127, 212, 0.7);
+      }
+
     }
 
     .icon-font {
