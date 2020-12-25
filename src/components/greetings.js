@@ -31,7 +31,7 @@ const Greetings = () => {
                 Aprendo, enseñando. Por eso cree este blog. En este blog tratamos temas sobre <a href="/tags/desarrolloweb">#desarrolloweb</a> <a href="/tags/emprendimiento">#emprendimiento</a> <a href="#!">#mitosinformaticos</a>
             </p>
             <p>
-                Te invito a leer a los articulos publicados en este blog, te ayudarán a crear la web por ti mismo.
+                Te invito a leer los articulos publicados en este blog, te ayudarán a crear la web por ti mismo.
             </p>
             </div>
 
